@@ -28,4 +28,9 @@ class MyViewController: UIViewController,UITableViewDataSource {
         let cell = self.mytableview.dequeueReusableCellWithIdentifier("myCell")! as UITableViewCell
         return cell
     }
+    
+    @IBAction func close(segue: UIStoryboardSegue) {
+        print("注销登录信息！")
+        self.performSegueWithIdentifier("relogin", sender: self)
+    }
 }

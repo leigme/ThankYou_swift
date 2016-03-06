@@ -23,13 +23,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNg-r2-vjX">
-                                <rect key="frame" x="285" y="411" width="30" height="30"/>
-                                <state key="normal" title="确定"/>
-                                <connections>
-                                    <action selector="oklogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OOA-Fl-82g"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="三课优" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQN-9N-KcI">
                                 <rect key="frame" x="275" y="164" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -60,11 +53,22 @@
                                     <action selector="forgetpassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jDu-Qo-cDw"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15K-6v-ZaQ">
+                                <rect key="frame" x="275" y="387" width="51" height="31"/>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNg-r2-vjX">
+                                <rect key="frame" x="284" y="444" width="30" height="30"/>
+                                <state key="normal" title="确定"/>
+                                <connections>
+                                    <action selector="oklogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OOA-Fl-82g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eQN-9N-KcI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9yl-L6-ZTS"/>
                             <constraint firstItem="inD-bF-rhe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-100" id="D8A-Sd-MKa"/>
+                            <constraint firstItem="15K-6v-ZaQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E8c-UX-1fh"/>
                             <constraint firstItem="KNg-r2-vjX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KHq-b6-HeA"/>
                             <constraint firstItem="MFX-9O-Hxp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L8R-Mp-2c2"/>
                             <constraint firstItem="BlU-Hg-T08" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="100" id="dCv-RV-uK9"/>
@@ -74,9 +78,11 @@
                             <constraint firstItem="inD-bF-rhe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="100" id="rdR-Wn-920"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="1L8-AV-2Sc"/>
                     <connections>
-                        <outlet property="password" destination="jgV-Gc-2DY" id="PlY-fo-UnV"/>
-                        <outlet property="username" destination="me4-oL-nAR" id="2a8-dl-inI"/>
+                        <outlet property="nameField" destination="me4-oL-nAR" id="Aw8-ld-ADt"/>
+                        <outlet property="pwdField" destination="jgV-Gc-2DY" id="gDl-bp-zpG"/>
+                        <outlet property="rmbField" destination="15K-6v-ZaQ" id="lif-RV-GTC"/>
                         <segue destination="fez-F1-EJ7" kind="presentation" identifier="login" id="6Yd-eG-wZ6"/>
                     </connections>
                 </viewController>
@@ -125,7 +131,7 @@
             </objects>
             <point key="canvasLocation" x="-1855" y="-859"/>
         </scene>
-        <!--View Controller-->
+        <!--个人设置-->
         <scene sceneID="Sql-3w-FdU">
             <objects>
                 <viewController id="62q-Pu-3wy" sceneMemberID="viewController">
@@ -138,11 +144,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uh3-2h-IGJ"/>
+                    <navigationItem key="navigationItem" title="个人设置" id="uh3-2h-IGJ">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="o8b-ys-fMT"/>
+                        <barButtonItem key="rightBarButtonItem" title="注销" style="plain" id="5Jl-Ut-q5G">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z4X-ZR-nKT">
+                                <rect key="frame" x="447" y="7" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="注销"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="relogin" id="Abs-2v-Dre"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BX7-lJ-sef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-832" y="316"/>
+            <point key="canvasLocation" x="-940" y="682"/>
         </scene>
         <!--Class View Controller-->
         <scene sceneID="9Cd-5L-NDI">
@@ -215,25 +233,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDl-3i-e2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1855" y="682"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="xmC-vn-kee">
-            <objects>
-                <viewController id="FlC-JK-jZt" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2nC-i1-fvn"/>
-                        <viewControllerLayoutGuide type="bottom" id="pSL-wJ-ADf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GXW-0K-cRa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="HwL-VP-g1X"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oWm-LV-j5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-832" y="1056"/>
         </scene>
         <!--班级-->
         <scene sceneID="jHK-Xa-SIb">

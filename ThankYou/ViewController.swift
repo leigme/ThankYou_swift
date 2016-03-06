@@ -10,11 +10,12 @@ import UIKit
 
 class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     
-    //控件获取账号
-    @IBOutlet weak var username: UITextField!
-    
-    //控件获取密码
-    @IBOutlet weak var password: UITextField!
+    //账号控件
+    @IBOutlet weak var nameField: UITextField!
+    //密码控件
+    @IBOutlet weak var pwdField: UITextField!
+    //记住密码控件
+    @IBOutlet weak var rmbField: UISwitch!
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -24,7 +25,26 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        password.secureTextEntry = true
+        pwdField.secureTextEntry = true
+        /*
+        self.nameField.text =
+            NSUserDefaults.standardUserDefaults().valueForKey("user") as! String!
+        self.pwdField.text = NSUserDefaults.standardUserDefaults().valueForKey("pwd") as! String!
+        self.rmbField.on = NSUserDefaults.standardUserDefaults().boolForKey("rmb") as Bool!
+        if (self.rmbField.on){
+            self.pwdField.text = NSUserDefaults.standardUserDefaults().valueForKey("pwd") as! String!
+        }
+        
+        //判断是否第一次启动：
+        if((NSUserDefaults.standardUserDefaults().boolForKey("IsFirstLaunch") as Bool!) == false){
+            //第一次启动，播放引导页面
+            print("第一次启动")
+            //设置为非第一次启动
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "IsFirstLaunch")
+        }else{
+            print("不是第一次启动")
+        }
+*/
         
     }
 
@@ -34,8 +54,8 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        username.resignFirstResponder()
-        password.resignFirstResponder()
+        nameField.resignFirstResponder()
+        pwdField.resignFirstResponder()
     }
     
     //修改密码跳转页面方法
@@ -46,9 +66,9 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     }
     
     //登录JSON服务器后台响应
-    func login(user: String , pwd: String) -> Bool {
+    func login(User : String, Pwd : String) -> Bool {
         var loginResponse = ApiLoginResponse()
-        let body = "user=\(user)&pwd=\(pwd)"
+        let body = "user=\(User)&pwd=\(Pwd)"
         let url = NSURL(string : apiurl.LoginUrl)!
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
@@ -156,10 +176,19 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     
     //登录判断跳转页面方法
     @IBAction func oklogin(sender: AnyObject) {
-        let uiuser : String = username.text!
-        let uipwd : String = password.text!
-        if uiuser != "" && uipwd != "" {
-            if login(uiuser,pwd: uipwd) {
+        let user : String = nameField.text!
+        let pwd : String = pwdField.text!
+        if user != "" && pwd != "" {
+            if login(user, Pwd:pwd) {
+                if rmbField.on == true {
+                    print("rmbSwitch选定！")
+                    /*
+                    NSUserDefaults.standardUserDefaults().setObject(self.nameField, forKey: "user")
+                    NSUserDefaults.standardUserDefaults().setObject(self.pwdField, forKey: "pwd")
+                    NSUserDefaults.standardUserDefaults().setObject(self.rmbField, forKey: "rmb")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+*/
+                }
                 self.performSegueWithIdentifier("login", sender: self)
             } else {
                 let alertController = UIAlertController(title: "系统提示",
