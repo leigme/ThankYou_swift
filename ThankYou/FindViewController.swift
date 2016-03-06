@@ -8,7 +8,9 @@
 
 import UIKit
 
-class FindViewController: UIViewController {
+class FindViewController: UIViewController,UITableViewDataSource {
+    
+    @IBOutlet weak var findTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,5 +18,14 @@ class FindViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = findTableView.dequeueReusableCellWithIdentifier("findCell")! as UITableViewCell
+        return cell
     }
 }

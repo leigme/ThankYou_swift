@@ -25,7 +25,7 @@ class MyViewController: UIViewController,UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.mytableview.dequeueReusableCellWithIdentifier("FriendCircleCell")! as UITableViewCell
+        let cell = self.mytableview.dequeueReusableCellWithIdentifier("myCell")! as UITableViewCell
         return cell
     }
 }

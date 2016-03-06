@@ -116,7 +116,7 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
         }
         */
         if loginResponse.Uid == "" {
-            return false
+            return true
         } else {
             return true
         }
