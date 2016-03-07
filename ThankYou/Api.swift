@@ -12,10 +12,12 @@ struct ApiUrl {
     
     let LoginUrl : String
     let FriendCircleUrl : String
+    let UserInfoUrl : String
     
     init() {
-        LoginUrl = "http://www.k12chn.com/edu/m17/Login/Index"
+        LoginUrl = "http://192.168.0.139/edu/m17/Login/Index"
         FriendCircleUrl = "http://192.168.0.139/edu/m17/FriendCircle/GetAllFriendCircle"
+        UserInfoUrl = "http://192.168.0.139/edu/m17/UserInfo/Index"
     }
 }
 

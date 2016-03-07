@@ -15,9 +15,18 @@
 		A84A3FCA1C88003900660A5B /* ThankYouTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A3FC91C88003900660A5B /* ThankYouTests.swift */; };
 		A84A3FD51C88003900660A5B /* ThankYouUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A3FD41C88003900660A5B /* ThankYouUITests.swift */; };
 		A84A3FE31C88012F00660A5B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A3FE21C88012F00660A5B /* Api.swift */; };
-		A84A3FE51C8968F400660A5B /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A3FE41C8968F400660A5B /* MyViewController.swift */; };
-		A84A3FE71C896DB000660A5B /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A3FE61C896DB000660A5B /* FindViewController.swift */; };
-		A84A3FE91C896DE400660A5B /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A3FE81C896DE400660A5B /* ClassViewController.swift */; };
+		A84A3FE51C8968F400660A5B /* StudentAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A3FE41C8968F400660A5B /* StudentAdminViewController.swift */; };
+		A84A3FE71C896DB000660A5B /* StudentFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A3FE61C896DB000660A5B /* StudentFindViewController.swift */; };
+		A84A3FE91C896DE400660A5B /* StudentClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A3FE81C896DE400660A5B /* StudentClassViewController.swift */; };
+		A86910FD1C8D2026008CECC5 /* TeacherFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86910FC1C8D2026008CECC5 /* TeacherFindViewController.swift */; };
+		A86910FF1C8D2139008CECC5 /* TeacherClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86910FE1C8D2139008CECC5 /* TeacherClassViewController.swift */; };
+		A86911011C8D2188008CECC5 /* TeacherAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86911001C8D2188008CECC5 /* TeacherAdminViewController.swift */; };
+		A86911031C8D21D6008CECC5 /* ParentFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86911021C8D21D6008CECC5 /* ParentFindViewController.swift */; };
+		A86911051C8D2224008CECC5 /* ParentClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86911041C8D2224008CECC5 /* ParentClassViewController.swift */; };
+		A86911071C8D2272008CECC5 /* ParentAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86911061C8D2272008CECC5 /* ParentAdminViewController.swift */; };
+		A881E8741C8D315C00487B6E /* TeacherFindAnnouncement .swift in Sources */ = {isa = PBXBuildFile; fileRef = A881E8731C8D315C00487B6E /* TeacherFindAnnouncement .swift */; };
+		A881E8761C8D7A2800487B6E /* TestLeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881E8751C8D7A2800487B6E /* TestLeftViewController.swift */; };
+		A881E8781C8D7B4B00487B6E /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881E8771C8D7B4B00487B6E /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +61,18 @@
 		A84A3FD41C88003900660A5B /* ThankYouUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouUITests.swift; sourceTree = "<group>"; };
 		A84A3FD61C88003900660A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A84A3FE21C88012F00660A5B /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		A84A3FE41C8968F400660A5B /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
-		A84A3FE61C896DB000660A5B /* FindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
-		A84A3FE81C896DE400660A5B /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
+		A84A3FE41C8968F400660A5B /* StudentAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentAdminViewController.swift; sourceTree = "<group>"; };
+		A84A3FE61C896DB000660A5B /* StudentFindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentFindViewController.swift; sourceTree = "<group>"; };
+		A84A3FE81C896DE400660A5B /* StudentClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentClassViewController.swift; sourceTree = "<group>"; };
+		A86910FC1C8D2026008CECC5 /* TeacherFindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherFindViewController.swift; sourceTree = "<group>"; };
+		A86910FE1C8D2139008CECC5 /* TeacherClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherClassViewController.swift; sourceTree = "<group>"; };
+		A86911001C8D2188008CECC5 /* TeacherAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherAdminViewController.swift; sourceTree = "<group>"; };
+		A86911021C8D21D6008CECC5 /* ParentFindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentFindViewController.swift; sourceTree = "<group>"; };
+		A86911041C8D2224008CECC5 /* ParentClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentClassViewController.swift; sourceTree = "<group>"; };
+		A86911061C8D2272008CECC5 /* ParentAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentAdminViewController.swift; sourceTree = "<group>"; };
+		A881E8731C8D315C00487B6E /* TeacherFindAnnouncement .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TeacherFindAnnouncement .swift"; sourceTree = "<group>"; };
+		A881E8751C8D7A2800487B6E /* TestLeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLeftViewController.swift; sourceTree = "<group>"; };
+		A881E8771C8D7B4B00487B6E /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,13 +126,22 @@
 				A84A3FB41C88003900660A5B /* AppDelegate.swift */,
 				A84A3FE21C88012F00660A5B /* Api.swift */,
 				A84A3FB61C88003900660A5B /* ViewController.swift */,
-				A84A3FE61C896DB000660A5B /* FindViewController.swift */,
-				A84A3FE81C896DE400660A5B /* ClassViewController.swift */,
-				A84A3FE41C8968F400660A5B /* MyViewController.swift */,
+				A84A3FE61C896DB000660A5B /* StudentFindViewController.swift */,
+				A84A3FE81C896DE400660A5B /* StudentClassViewController.swift */,
+				A84A3FE41C8968F400660A5B /* StudentAdminViewController.swift */,
 				A84A3FB81C88003900660A5B /* Main.storyboard */,
 				A84A3FBB1C88003900660A5B /* Assets.xcassets */,
 				A84A3FBD1C88003900660A5B /* LaunchScreen.storyboard */,
 				A84A3FC01C88003900660A5B /* Info.plist */,
+				A86910FC1C8D2026008CECC5 /* TeacherFindViewController.swift */,
+				A86910FE1C8D2139008CECC5 /* TeacherClassViewController.swift */,
+				A86911001C8D2188008CECC5 /* TeacherAdminViewController.swift */,
+				A86911021C8D21D6008CECC5 /* ParentFindViewController.swift */,
+				A86911041C8D2224008CECC5 /* ParentClassViewController.swift */,
+				A86911061C8D2272008CECC5 /* ParentAdminViewController.swift */,
+				A881E8731C8D315C00487B6E /* TeacherFindAnnouncement .swift */,
+				A881E8751C8D7A2800487B6E /* TestLeftViewController.swift */,
+				A881E8771C8D7B4B00487B6E /* Common.swift */,
 			);
 			path = ThankYou;
 			sourceTree = "<group>";
@@ -269,11 +296,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A84A3FE71C896DB000660A5B /* FindViewController.swift in Sources */,
+				A86911051C8D2224008CECC5 /* ParentClassViewController.swift in Sources */,
+				A881E8741C8D315C00487B6E /* TeacherFindAnnouncement .swift in Sources */,
+				A86910FF1C8D2139008CECC5 /* TeacherClassViewController.swift in Sources */,
+				A86911031C8D21D6008CECC5 /* ParentFindViewController.swift in Sources */,
+				A86910FD1C8D2026008CECC5 /* TeacherFindViewController.swift in Sources */,
+				A881E8761C8D7A2800487B6E /* TestLeftViewController.swift in Sources */,
+				A86911071C8D2272008CECC5 /* ParentAdminViewController.swift in Sources */,
+				A86911011C8D2188008CECC5 /* TeacherAdminViewController.swift in Sources */,
+				A84A3FE71C896DB000660A5B /* StudentFindViewController.swift in Sources */,
 				A84A3FB71C88003900660A5B /* ViewController.swift in Sources */,
 				A84A3FB51C88003900660A5B /* AppDelegate.swift in Sources */,
-				A84A3FE91C896DE400660A5B /* ClassViewController.swift in Sources */,
-				A84A3FE51C8968F400660A5B /* MyViewController.swift in Sources */,
+				A84A3FE91C896DE400660A5B /* StudentClassViewController.swift in Sources */,
+				A84A3FE51C8968F400660A5B /* StudentAdminViewController.swift in Sources */,
+				A881E8781C8D7B4B00487B6E /* Common.swift in Sources */,
 				A84A3FE31C88012F00660A5B /* Api.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +543,7 @@
 				A84A3FDB1C88003900660A5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A84A3FDC1C88003900660A5B /* Build configuration list for PBXNativeTarget "ThankYouTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +552,7 @@
 				A84A3FDE1C88003900660A5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A84A3FDF1C88003900660A5B /* Build configuration list for PBXNativeTarget "ThankYouUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +561,7 @@
 				A84A3FE11C88003900660A5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

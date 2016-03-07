@@ -1,16 +1,16 @@
 //
-//  FindViewController.swift
+//  TeacherFindAnnouncement .swift
 //  ThankYou
 //
-//  Created by leig-imac on 16/3/4.
+//  Created by leig-imac on 16/3/7.
 //  Copyright © 2016年 leig. All rights reserved.
 //
 
 import UIKit
 
-class FindViewController: UIViewController,UITableViewDataSource {
+class TeacherFindAnnouncement: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    @IBOutlet weak var findTableView: UITableView!
+    @IBOutlet weak var teacherFindAnnouncementTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class FindViewController: UIViewController,UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = findTableView.dequeueReusableCellWithIdentifier("findCell")! as UITableViewCell
+        let cell = self.teacherFindAnnouncementTableView.dequeueReusableCellWithIdentifier("teacherFindAnnouncementCell")! as UITableViewCell
         return cell
     }
 }

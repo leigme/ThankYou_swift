@@ -1,5 +1,5 @@
 //
-//  MyViewController.swift
+//  StudentFindViewController.swift
 //  ThankYou
 //
 //  Created by leig-imac on 16/3/4.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MyViewController: UIViewController,UITableViewDataSource {
+class StudentFindViewController: UIViewController,UITableViewDataSource {
     
-    @IBOutlet weak var mytableview: UITableView!
+    @IBOutlet weak var findTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +21,11 @@ class MyViewController: UIViewController,UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.mytableview.dequeueReusableCellWithIdentifier("myCell")! as UITableViewCell
+        let cell = findTableView.dequeueReusableCellWithIdentifier("findCell")! as UITableViewCell
         return cell
-    }
-    
-    @IBAction func close(segue: UIStoryboardSegue) {
-        print("注销登录信息！")
-        self.performSegueWithIdentifier("relogin", sender: self)
     }
 }

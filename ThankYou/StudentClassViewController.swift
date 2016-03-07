@@ -1,5 +1,5 @@
 //
-//  ClassViewController.swift
+//  StudentClassViewController.swift
 //  ThankYou
 //
 //  Created by leig-imac on 16/3/4.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClassViewController: UIViewController,UITableViewDataSource{
+class StudentClassViewController: UIViewController,UITableViewDataSource{
     
     @IBOutlet weak var classTableView: UITableView!
     

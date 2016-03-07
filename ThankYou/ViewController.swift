@@ -17,11 +17,18 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     //记住密码控件
     @IBOutlet weak var rmbField: UISwitch!
     
+    let NameKey = "name"
+    let PwdKey = "pwd"
+    let RmbKey = "rmb"
+    let IsFirstLaunch = "ifl"
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
     var apiurl = ApiUrl()
+    var loginResponse = ApiLoginResponse()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +50,9 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "IsFirstLaunch")
         }else{
             print("不是第一次启动")
+            self.performSegueWithIdentifier("login", sender: self)
         }
 */
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,7 +74,7 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     
     //登录JSON服务器后台响应
     func login(User : String, Pwd : String) -> Bool {
-        var loginResponse = ApiLoginResponse()
+        
         let body = "user=\(User)&pwd=\(Pwd)"
         let url = NSURL(string : apiurl.LoginUrl)!
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
@@ -89,15 +96,15 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
                 if jsonData != nil {
                     print("Json Object:"); print(jsonData)
                     let uid: String = jsonData.objectForKey("uid")! as! String
-                    let key: String = jsonData.objectForKey("uid")! as! String
-                    let user: String = jsonData.objectForKey("uid")! as! String
-                    let pwd: String = jsonData.objectForKey("uid")! as! String
-                    let flag: String = jsonData.objectForKey("uid")! as! String
-                    loginResponse.Uid = uid
-                    loginResponse.Key = key
-                    loginResponse.User = user
-                    loginResponse.Pwd = pwd
-                    loginResponse.Flag = flag
+                    let key: String = jsonData.objectForKey("key")! as! String
+                    let user: String = jsonData.objectForKey("user")! as! String
+                    let pwd: String = jsonData.objectForKey("pwd")! as! String
+                    let flag: String = jsonData.objectForKey("flag")! as! String
+                    self.loginResponse.Uid = uid
+                    self.loginResponse.Key = key
+                    self.loginResponse.User = user
+                    self.loginResponse.Pwd = pwd
+                    self.loginResponse.Flag = flag
                 } else {
                     print("======")
                 }
@@ -135,8 +142,8 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
             print(error.description)
         }
         */
-        if loginResponse.Uid == "" {
-            return true
+        if self.loginResponse.Uid == "" {
+            return false
         } else {
             return true
         }
@@ -180,16 +187,25 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
         let pwd : String = pwdField.text!
         if user != "" && pwd != "" {
             if login(user, Pwd:pwd) {
+                /*
                 if rmbField.on == true {
                     print("rmbSwitch选定！")
-                    /*
-                    NSUserDefaults.standardUserDefaults().setObject(self.nameField, forKey: "user")
-                    NSUserDefaults.standardUserDefaults().setObject(self.pwdField, forKey: "pwd")
-                    NSUserDefaults.standardUserDefaults().setObject(self.rmbField, forKey: "rmb")
+                    //设置用户登录信息存储在NSUserDefaults
+                    NSUserDefaults.standardUserDefaults().setObject(self.nameField.text, forKey: "NameKey")
+                    NSUserDefaults.standardUserDefaults().setObject(self.pwdField.text, forKey: "PwdKey")
+                    NSUserDefaults.standardUserDefaults().setObject(self.rmbField.on, forKey: "RmbKey")
+                    //设置同步
                     NSUserDefaults.standardUserDefaults().synchronize()
-*/
                 }
-                self.performSegueWithIdentifier("login", sender: self)
+                */
+                //构建用户角色菜单Cell
+                print(self.loginResponse.Flag)
+                switch self.loginResponse.Flag {
+                case "teacher" : self.performSegueWithIdentifier("loginTeacher", sender: self)
+                case "student" : self.performSegueWithIdentifier("loginStudent", sender: self)
+                case "parent" : self.performSegueWithIdentifier("loginParent", sender: self)
+                default : "登录跳转失败！"
+                }
             } else {
                 let alertController = UIAlertController(title: "系统提示",
                     message: "您的账号或者密码错误！", preferredStyle: .Alert)
