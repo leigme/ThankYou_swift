@@ -34,13 +34,15 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
         super.viewDidLoad()
         if let ifl = NSUserDefaults.standardUserDefaults().valueForKey("IsFirstLaunch") {
             print(ifl)
-            let sflag = NSUserDefaults.standardUserDefaults().valueForKey("SFlag")
-            let s = String(sflag)
-            switch s {
-            case "teacher" : self.performSegueWithIdentifier("loginTeacher", sender: self)
-            case "student" : self.performSegueWithIdentifier("loginStudent", sender: self)
-            case "parent" : self.performSegueWithIdentifier("loginParent", sender: self)
-            default : "登录跳转失败！"
+            if let sflag = NSUserDefaults.standardUserDefaults().valueForKey("SFlag") {
+                let s : String = sflag as! String
+                print(s)
+                switch s {
+                case "teacher" : self.performSegueWithIdentifier("loginTeacher", sender: self)
+                case "student" : self.performSegueWithIdentifier("loginStudent", sender: self)
+                case "parent" : self.performSegueWithIdentifier("loginParent", sender: self)
+                default : "登录跳转失败！"
+                }
             }
         }
         pwdField.secureTextEntry = true
@@ -198,16 +200,14 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
         let pwd : String = pwdField.text!
         if user != "" && pwd != "" {
             if login(user, Pwd:pwd) {
-                if let ifl = NSUserDefaults.standardUserDefaults().valueForKey("IsFirstLaunch") {
-                    print(ifl)
-                } else {
+
                     NSUserDefaults.standardUserDefaults().setObject(self.loginResponse.User, forKey: "SUser")
                     NSUserDefaults.standardUserDefaults().setObject(self.loginResponse.Uid, forKey: "SUid")
                     NSUserDefaults.standardUserDefaults().setObject(self.loginResponse.Pwd, forKey: "SPwd")
                     NSUserDefaults.standardUserDefaults().setObject(self.loginResponse.Key, forKey: "SKey")
                     NSUserDefaults.standardUserDefaults().setObject(self.loginResponse.Flag, forKey: "SFlag")
                     NSUserDefaults.standardUserDefaults().setObject(self.IsFirstLaunch, forKey: "IsFirstLaunch")
-                }
+           
 
                 /*
                 if rmbField.on == true {
