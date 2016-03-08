@@ -14,12 +14,12 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var nameField: UITextField!
     //密码控件
     @IBOutlet weak var pwdField: UITextField!
-    //记住密码控件
-    @IBOutlet weak var rmbField: UISwitch!
-    
-    let NameKey = "name"
-    let PwdKey = "pwd"
-    let RmbKey = "rmb"
+
+    let SUser = "username"
+    let SUid = "uid"
+    let SPwd = "pwd"
+    let SKey = "key"
+    let SFlag = "flag"
     let IsFirstLaunch = "ifl"
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -32,6 +32,17 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let ifl = NSUserDefaults.standardUserDefaults().valueForKey("IsFirstLaunch") {
+            print(ifl)
+            let sflag = NSUserDefaults.standardUserDefaults().valueForKey("SFlag")
+            let s = String(sflag)
+            switch s {
+            case "teacher" : self.performSegueWithIdentifier("loginTeacher", sender: self)
+            case "student" : self.performSegueWithIdentifier("loginStudent", sender: self)
+            case "parent" : self.performSegueWithIdentifier("loginParent", sender: self)
+            default : "登录跳转失败！"
+            }
+        }
         pwdField.secureTextEntry = true
         /*
         self.nameField.text =
@@ -187,10 +198,26 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
         let pwd : String = pwdField.text!
         if user != "" && pwd != "" {
             if login(user, Pwd:pwd) {
+                if let ifl = NSUserDefaults.standardUserDefaults().valueForKey("IsFirstLaunch") {
+                    print(ifl)
+                } else {
+                    NSUserDefaults.standardUserDefaults().setObject(self.loginResponse.User, forKey: "SUser")
+                    NSUserDefaults.standardUserDefaults().setObject(self.loginResponse.Uid, forKey: "SUid")
+                    NSUserDefaults.standardUserDefaults().setObject(self.loginResponse.Pwd, forKey: "SPwd")
+                    NSUserDefaults.standardUserDefaults().setObject(self.loginResponse.Key, forKey: "SKey")
+                    NSUserDefaults.standardUserDefaults().setObject(self.loginResponse.Flag, forKey: "SFlag")
+                    NSUserDefaults.standardUserDefaults().setObject(self.IsFirstLaunch, forKey: "IsFirstLaunch")
+                }
+
                 /*
                 if rmbField.on == true {
                     print("rmbSwitch选定！")
-                    //设置用户登录信息存储在NSUserDefaults
+                //设置用户登录信息存储在NSUserDefaultslet SUser = "username"
+                let SUid = "uid"
+                let SPwd = "pwd"
+                let SKey = "key"
+                let SFlag = "flag"
+                let IsFirstLaunch = "ifl"
                     NSUserDefaults.standardUserDefaults().setObject(self.nameField.text, forKey: "NameKey")
                     NSUserDefaults.standardUserDefaults().setObject(self.pwdField.text, forKey: "PwdKey")
                     NSUserDefaults.standardUserDefaults().setObject(self.rmbField.on, forKey: "RmbKey")

@@ -25,8 +25,8 @@
 		A86911051C8D2224008CECC5 /* ParentClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86911041C8D2224008CECC5 /* ParentClassViewController.swift */; };
 		A86911071C8D2272008CECC5 /* ParentAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86911061C8D2272008CECC5 /* ParentAdminViewController.swift */; };
 		A881E8741C8D315C00487B6E /* TeacherFindAnnouncement .swift in Sources */ = {isa = PBXBuildFile; fileRef = A881E8731C8D315C00487B6E /* TeacherFindAnnouncement .swift */; };
-		A881E8761C8D7A2800487B6E /* TestLeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881E8751C8D7A2800487B6E /* TestLeftViewController.swift */; };
 		A881E8781C8D7B4B00487B6E /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881E8771C8D7B4B00487B6E /* Common.swift */; };
+		A8C82C151C8E5EBF005DD07C /* TeacherClassSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C82C141C8E5EBF005DD07C /* TeacherClassSideViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +71,8 @@
 		A86911041C8D2224008CECC5 /* ParentClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentClassViewController.swift; sourceTree = "<group>"; };
 		A86911061C8D2272008CECC5 /* ParentAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentAdminViewController.swift; sourceTree = "<group>"; };
 		A881E8731C8D315C00487B6E /* TeacherFindAnnouncement .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TeacherFindAnnouncement .swift"; sourceTree = "<group>"; };
-		A881E8751C8D7A2800487B6E /* TestLeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLeftViewController.swift; sourceTree = "<group>"; };
 		A881E8771C8D7B4B00487B6E /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		A8C82C141C8E5EBF005DD07C /* TeacherClassSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherClassSideViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,11 +136,11 @@
 				A86910FC1C8D2026008CECC5 /* TeacherFindViewController.swift */,
 				A86910FE1C8D2139008CECC5 /* TeacherClassViewController.swift */,
 				A86911001C8D2188008CECC5 /* TeacherAdminViewController.swift */,
+				A8C82C141C8E5EBF005DD07C /* TeacherClassSideViewController.swift */,
 				A86911021C8D21D6008CECC5 /* ParentFindViewController.swift */,
 				A86911041C8D2224008CECC5 /* ParentClassViewController.swift */,
 				A86911061C8D2272008CECC5 /* ParentAdminViewController.swift */,
 				A881E8731C8D315C00487B6E /* TeacherFindAnnouncement .swift */,
-				A881E8751C8D7A2800487B6E /* TestLeftViewController.swift */,
 				A881E8771C8D7B4B00487B6E /* Common.swift */,
 			);
 			path = ThankYou;
@@ -301,7 +301,7 @@
 				A86910FF1C8D2139008CECC5 /* TeacherClassViewController.swift in Sources */,
 				A86911031C8D21D6008CECC5 /* ParentFindViewController.swift in Sources */,
 				A86910FD1C8D2026008CECC5 /* TeacherFindViewController.swift in Sources */,
-				A881E8761C8D7A2800487B6E /* TestLeftViewController.swift in Sources */,
+				A8C82C151C8E5EBF005DD07C /* TeacherClassSideViewController.swift in Sources */,
 				A86911071C8D2272008CECC5 /* ParentAdminViewController.swift in Sources */,
 				A86911011C8D2188008CECC5 /* TeacherAdminViewController.swift in Sources */,
 				A84A3FE71C896DB000660A5B /* StudentFindViewController.swift in Sources */,

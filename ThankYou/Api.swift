@@ -14,10 +14,17 @@ struct ApiUrl {
     let FriendCircleUrl : String
     let UserInfoUrl : String
     
+    let ClassSeatUrl : String
+    let FriendListUrl : String
+    let SliderBarUrl : String
+    
     init() {
         LoginUrl = "http://192.168.0.139/edu/m17/Login/Index"
         FriendCircleUrl = "http://192.168.0.139/edu/m17/FriendCircle/GetAllFriendCircle"
         UserInfoUrl = "http://192.168.0.139/edu/m17/UserInfo/Index"
+        ClassSeatUrl = "http://192.168.0.139/edu/m17/Seat/Index"
+        FriendListUrl = "http://192.168.0.139/edu/m17/FriendList/Index"
+        SliderBarUrl = "http://192.168.0.139/edu/m17/UserSliderBar/Index"
     }
 }
 

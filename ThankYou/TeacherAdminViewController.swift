@@ -12,7 +12,18 @@ class TeacherAdminViewController: UIViewController,UITableViewDataSource {
     
     @IBOutlet weak var teacherAdminTableView: UITableView!
     
-    let teacherAdminList:[String] = ["个人信息","学习圈子","平台简介"]
+    struct TeacherAdminCell {
+        var title : String
+        var segue : String
+    }
+    
+    /*
+    let tac1 = TeacherAdminCell(title: "个人信息", segue: "")
+    let tac2 = TeacherAdminCell(title: "学习圈子", segue: "")
+    let tac3 = TeacherAdminCell(title: "", segue: "")
+    */
+    
+    let teacherAdminList:[String] = ["个人信息","平台简介"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
