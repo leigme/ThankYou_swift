@@ -26,6 +26,11 @@
 		A86911071C8D2272008CECC5 /* ParentAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86911061C8D2272008CECC5 /* ParentAdminViewController.swift */; };
 		A881E8741C8D315C00487B6E /* TeacherFindAnnouncement .swift in Sources */ = {isa = PBXBuildFile; fileRef = A881E8731C8D315C00487B6E /* TeacherFindAnnouncement .swift */; };
 		A881E8781C8D7B4B00487B6E /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881E8771C8D7B4B00487B6E /* Common.swift */; };
+		A89FE3D81C8FB94E0044BD97 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89FE3D71C8FB94E0044BD97 /* StartViewController.swift */; };
+		A89FE3DA1C8FB9630044BD97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89FE3D91C8FB9630044BD97 /* LoginViewController.swift */; };
+		A89FE3DC1C8FB9720044BD97 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89FE3DB1C8FB9720044BD97 /* FindViewController.swift */; };
+		A89FE3DE1C8FB9890044BD97 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89FE3DD1C8FB9890044BD97 /* StudyViewController.swift */; };
+		A89FE3E01C8FB9A30044BD97 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89FE3DF1C8FB9A30044BD97 /* PersonalViewController.swift */; };
 		A8C82C151C8E5EBF005DD07C /* TeacherClassSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C82C141C8E5EBF005DD07C /* TeacherClassSideViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +77,11 @@
 		A86911061C8D2272008CECC5 /* ParentAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentAdminViewController.swift; sourceTree = "<group>"; };
 		A881E8731C8D315C00487B6E /* TeacherFindAnnouncement .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TeacherFindAnnouncement .swift"; sourceTree = "<group>"; };
 		A881E8771C8D7B4B00487B6E /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		A89FE3D71C8FB94E0044BD97 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		A89FE3D91C8FB9630044BD97 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A89FE3DB1C8FB9720044BD97 /* FindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindViewController.swift; path = ../FindViewController.swift; sourceTree = "<group>"; };
+		A89FE3DD1C8FB9890044BD97 /* StudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
+		A89FE3DF1C8FB9A30044BD97 /* PersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
 		A8C82C141C8E5EBF005DD07C /* TeacherClassSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherClassSideViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +152,11 @@
 				A86911061C8D2272008CECC5 /* ParentAdminViewController.swift */,
 				A881E8731C8D315C00487B6E /* TeacherFindAnnouncement .swift */,
 				A881E8771C8D7B4B00487B6E /* Common.swift */,
+				A89FE3D71C8FB94E0044BD97 /* StartViewController.swift */,
+				A89FE3D91C8FB9630044BD97 /* LoginViewController.swift */,
+				A89FE3DB1C8FB9720044BD97 /* FindViewController.swift */,
+				A89FE3DD1C8FB9890044BD97 /* StudyViewController.swift */,
+				A89FE3DF1C8FB9A30044BD97 /* PersonalViewController.swift */,
 			);
 			path = ThankYou;
 			sourceTree = "<group>";
@@ -297,17 +312,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				A86911051C8D2224008CECC5 /* ParentClassViewController.swift in Sources */,
+				A89FE3D81C8FB94E0044BD97 /* StartViewController.swift in Sources */,
 				A881E8741C8D315C00487B6E /* TeacherFindAnnouncement .swift in Sources */,
 				A86910FF1C8D2139008CECC5 /* TeacherClassViewController.swift in Sources */,
 				A86911031C8D21D6008CECC5 /* ParentFindViewController.swift in Sources */,
+				A89FE3DC1C8FB9720044BD97 /* FindViewController.swift in Sources */,
+				A89FE3E01C8FB9A30044BD97 /* PersonalViewController.swift in Sources */,
 				A86910FD1C8D2026008CECC5 /* TeacherFindViewController.swift in Sources */,
 				A8C82C151C8E5EBF005DD07C /* TeacherClassSideViewController.swift in Sources */,
 				A86911071C8D2272008CECC5 /* ParentAdminViewController.swift in Sources */,
 				A86911011C8D2188008CECC5 /* TeacherAdminViewController.swift in Sources */,
 				A84A3FE71C896DB000660A5B /* StudentFindViewController.swift in Sources */,
+				A89FE3DE1C8FB9890044BD97 /* StudyViewController.swift in Sources */,
 				A84A3FB71C88003900660A5B /* ViewController.swift in Sources */,
 				A84A3FB51C88003900660A5B /* AppDelegate.swift in Sources */,
 				A84A3FE91C896DE400660A5B /* StudentClassViewController.swift in Sources */,
+				A89FE3DA1C8FB9630044BD97 /* LoginViewController.swift in Sources */,
 				A84A3FE51C8968F400660A5B /* StudentAdminViewController.swift in Sources */,
 				A881E8781C8D7B4B00487B6E /* Common.swift in Sources */,
 				A84A3FE31C88012F00660A5B /* Api.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
+class ViewController: UIViewController {
     
     //账号控件
     @IBOutlet weak var nameField: UITextField!
@@ -167,7 +167,6 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
                 if error != nil{
                     print(error?.code)
                     print(error?.description)
-                    result = false
                 }else{
                     /*
                     let str = NSString(data: data!, encoding: NSUTF8StringEncoding)
@@ -187,7 +186,6 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
                         loginResponse.Pwd = pwd
                         loginResponse.Flag = flag
                     print(loginResponse.Uid)
-                    result = true
                 }
             }) as NSURLSessionTask
         task.resume()
