@@ -15,6 +15,22 @@ class ViewController: UIViewController {
     //密码控件
     @IBOutlet weak var pwdField: UITextField!
 
+    struct ApiLoginResponse {
+        var Uid : String
+        var Key : String
+        var User : String
+        var Pwd : String
+        var Flag : String
+        
+        init () {
+            Uid = ""
+            Key = ""
+            User = ""
+            Pwd = ""
+            Flag = ""
+        }
+    }
+    
     let SUser = "username"
     let SUid = "uid"
     let SPwd = "pwd"
@@ -27,7 +43,7 @@ class ViewController: UIViewController {
         return true
     }
     
-    var apiurl = ApiUrl()
+    var apiurl = ApiOperating()
     var loginResponse = ApiLoginResponse()
     
     override func viewDidLoad() {

@@ -11,6 +11,22 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    struct ApiLoginResponse {
+        var Uid : String
+        var Key : String
+        var User : String
+        var Pwd : String
+        var Flag : String
+        
+        init () {
+            Uid = ""
+            Key = ""
+            User = ""
+            Pwd = ""
+            Flag = ""
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named:"侧栏背景1080-1920.jpg")!)
@@ -26,7 +42,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    let apiurl = ApiUrl()
+    let apiurl = ApiOperating()
     var loginResponse = ApiLoginResponse()
     
     @IBAction func okLogin(sender: AnyObject) {
@@ -51,8 +67,7 @@ class LoginViewController: UIViewController {
     }
     
     //登录功能JSON请求
-    func login(User : String, Pwd : String) -> Bool {
-        
+    func login(User : String, Pwd : String) -> Bool {    
         let body = "user=\(User)&pwd=\(Pwd)"
         let url = NSURL(string : apiurl.LoginUrl)!
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)

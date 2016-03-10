@@ -8,8 +8,9 @@
 
 import UIKit
 
-struct ApiUrl {
+struct ApiOperating {
     
+    let ServerIP: String
     let LoginUrl : String
     let FriendCircleUrl : String
     let UserInfoUrl : String
@@ -19,27 +20,66 @@ struct ApiUrl {
     let SliderBarUrl : String
     
     init() {
-        LoginUrl = "http://192.168.0.139/edu/m17/Login/Index"
-        FriendCircleUrl = "http://192.168.0.139/edu/m17/FriendCircle/GetAllFriendCircle"
-        UserInfoUrl = "http://192.168.0.139/edu/m17/UserInfo/Index"
-        ClassSeatUrl = "http://192.168.0.139/edu/m17/Seat/Index"
-        FriendListUrl = "http://192.168.0.139/edu/m17/FriendList/Index"
-        SliderBarUrl = "http://192.168.0.139/edu/m17/UserSliderBar/Index"
+        ServerIP = "http://192.168.0.139/"
+        LoginUrl =  ServerIP + "edu/m17/Login/Index"
+        
+        UserInfoUrl = ServerIP + "edu/m17/UserInfo/Index"
+        
+        SliderBarUrl = ServerIP + "edu/m17/UserSliderBar/Index"
+        ClassSeatUrl = ServerIP + "edu/m17/Seat/Index"
+        
+        FriendListUrl = ServerIP + "edu/m17/FriendList/Index"
+        FriendCircleUrl = ServerIP + "edu/m17/FriendCircle/GetAllFriendCircle"
     }
-}
-
-struct ApiLoginResponse {
-    var Uid : String
-    var Key : String
-    var User : String
-    var Pwd : String
-    var Flag : String
     
-    init () {
-        Uid = ""
-        Key = ""
-        User = ""
-        Pwd = ""
-        Flag = ""
+    //同步请求
+    func getJsonDataBySynchronous(apiurl: String,body: String) -> AnyObject? {
+        var jsonData: AnyObject?
+        let url = NSURL(string : apiurl)!
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding)
+        let session = NSURLSession.sharedSession()
+        let semaphore = dispatch_semaphore_create(0)
+        let dataTask = session.dataTaskWithRequest(request,completionHandler:{(data,response,error)->Void in
+            if error != nil {
+                print(error?.code)
+                print(error?.description)
+            } else {
+                jsonData = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+                if jsonData != nil {
+                    print("Json Object:"); print(jsonData)
+                } else {
+                    print("服务器没有返回JSON对象！")
+                }
+            }
+            dispatch_semaphore_signal(semaphore)
+        }) as NSURLSessionTask
+        dataTask.resume()
+        dispatch_semaphore_wait(semaphore,DISPATCH_TIME_FOREVER)
+        print("数据加载完毕！")
+        return jsonData
+    }
+    
+    //异步请求
+    func getJsonDataByAsynchronous(apiurl: String,body: String) -> AnyObject? {
+        var jsonData: AnyObject?
+        let url = NSURL(string : apiurl)!
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request,
+            completionHandler: {(data, response, error) -> Void in
+                if error != nil{
+                    print(error?.code)
+                    print(error?.description)
+                }else{
+                    jsonData = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+                    print("Json Object:"); print(jsonData)
+                }
+        }) as NSURLSessionTask
+        task.resume()
+        return jsonData
     }
 }
