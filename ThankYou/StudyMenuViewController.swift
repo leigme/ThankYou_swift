@@ -42,10 +42,9 @@ class StudyMenuViewController: UIViewController,UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.menuTableView.dequeueReusableCellWithIdentifier("StudyMenuCell")! as UITableViewCell
-        for cl in cls {
-            let title = cell.textLabel
-            title!.text = cl.classname
-        }
+        let cl = cls[indexPath.row]
+        let title = cell.viewWithTag(101) as! UILabel
+        title.text = cl.classname
         return cell
     }
 }
