@@ -10,26 +10,28 @@ import UIKit
 
 struct ApiOperating {
     
-    let ServerIP: String
-    let LoginUrl : String
-    let FriendCircleUrl : String
-    let UserInfoUrl : String
+    let ServerAddress: String
+    let LoginUrl: String
+    let ForgetPwdUrl: String
+    let FriendCircleUrl: String
+    let UserInfoUrl: String
     
-    let ClassSeatUrl : String
-    let FriendListUrl : String
-    let SliderBarUrl : String
+    let ClassSeatUrl: String
+    let FriendListUrl: String
+    let SliderBarUrl: String
     
     init() {
-        ServerIP = "http://192.168.0.139/"
-        LoginUrl =  ServerIP + "edu/m17/Login/Index"
+        ServerAddress = "http://192.168.0.139/"
+        LoginUrl =  ServerAddress + "edu/m17/Login/Index"
+        ForgetPwdUrl = ServerAddress + "edu/m00/ForgetPassword/Index"
+    
+        UserInfoUrl = ServerAddress + "edu/m17/UserInfo/Index"
         
-        UserInfoUrl = ServerIP + "edu/m17/UserInfo/Index"
+        SliderBarUrl = ServerAddress + "edu/m17/UserSliderBar/Index"
+        ClassSeatUrl = ServerAddress + "edu/m17/Seat/Index"
         
-        SliderBarUrl = ServerIP + "edu/m17/UserSliderBar/Index"
-        ClassSeatUrl = ServerIP + "edu/m17/Seat/Index"
-        
-        FriendListUrl = ServerIP + "edu/m17/FriendList/Index"
-        FriendCircleUrl = ServerIP + "edu/m17/FriendCircle/GetAllFriendCircle"
+        FriendListUrl = ServerAddress + "edu/m17/FriendList/Index"
+        FriendCircleUrl = ServerAddress + "edu/m17/FriendCircle/GetAllFriendCircle"
     }
     
     //同步请求
@@ -81,5 +83,32 @@ struct ApiOperating {
         }) as NSURLSessionTask
         task.resume()
         return jsonData
+    }
+    
+    //修改图片尺寸
+    func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+        } else {
+            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }

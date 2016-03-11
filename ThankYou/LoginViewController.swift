@@ -42,6 +42,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    @IBAction func ForgetPwd(sender: AnyObject) {
+        if let url = NSURL(string: apiurl.ForgetPwdUrl) {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        username.resignFirstResponder()
+        password.resignFirstResponder()
+    }
+    
     let apiurl = ApiOperating()
     var loginResponse = ApiLoginResponse()
     
@@ -49,16 +60,48 @@ class LoginViewController: UIViewController {
         if let name = username.text {
             if name == "" {
                 print("请您填写账号！")
+                let alertController = UIAlertController(title: "系统提示",
+                    message: "请您的填写账号和密码！", preferredStyle: .Alert)
+                //let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+                let okAction = UIAlertAction(title: "好的", style: .Default,
+                    handler: {
+                        action in
+                })
+                //alertController.addAction(cancelAction)
+                alertController.addAction(okAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
             } else {
                 if let pwd = password.text {
                     if pwd == "" {
                         print("请您填写密码！")
+                        let alertController = UIAlertController(title: "系统提示",
+                            message: "请您的填写账号和密码！", preferredStyle: .Alert)
+                        //let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+                        let okAction = UIAlertAction(title: "好的", style: .Default,
+                            handler: {
+                                action in
+                        })
+                        //alertController.addAction(cancelAction)
+                        alertController.addAction(okAction)
+                        self.presentViewController(alertController, animated: true, completion: nil)
                     } else {
                         if login(name, Pwd: pwd) {
-                            self.performSegueWithIdentifier("LoginGoFindSegue", sender: self)
+                            self.performSegueWithIdentifier("LoginGoStartSegue", sender: self)
                             print(login(name, Pwd: pwd))
                         } else {
                             print("账号或密码错误！")
+                            let alertController = UIAlertController(title: "系统提示",
+                                message: "您的账号或者密码错误！", preferredStyle: .Alert)
+                            let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+                            /*
+                            let okAction = UIAlertAction(title: "好的", style: .Default,
+                            handler: {
+                            action in
+                            })
+                            */
+                            alertController.addAction(cancelAction)
+                            // alertController.addAction(okAction)
+                            self.presentViewController(alertController, animated: true, completion: nil)
                         }
                     }
                 }
