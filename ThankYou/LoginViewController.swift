@@ -48,6 +48,11 @@ class LoginViewController: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         username.resignFirstResponder()
         password.resignFirstResponder()

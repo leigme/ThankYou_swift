@@ -25,33 +25,7 @@ class StudyViewController: UIViewController {
     //菜单打开后主页在屏幕右侧露出部分的宽度
     let menuViewExpandedOffset: CGFloat = 150
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let bgBuleColor = UIColor(red: 38/255, green: 109/255, blue: 227/255, alpha: 1)
-        self.navigationController?.navigationBar.barTintColor = bgBuleColor
-        //添加主页面
-        studyHomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("StudyHomeViewController") as! StudyHomeViewController
-        self.view.addSubview(studyHomeViewController.view)
-        
-        //建立父子关系
-        addChildViewController(studyHomeViewController)
-        studyHomeViewController.didMoveToParentViewController(self)
-        
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
-        studyHomeViewController.view.addGestureRecognizer(panGestureRecognizer)
-        
-        //单击收起菜单手势
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handlePanGesture")
-        studyHomeViewController.view.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
     
     func handlePanGesture(recognizer:UIPanGestureRecognizer) {
         switch(recognizer.state) {
@@ -130,5 +104,33 @@ class StudyViewController: UIViewController {
         case Collapsed
         case Expanding
         case Expanded
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let bgBuleColor = UIColor(red: 38/255, green: 109/255, blue: 227/255, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = bgBuleColor
+        //添加主页面
+        studyHomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("StudyHomeViewController") as! StudyHomeViewController
+        self.view.addSubview(studyHomeViewController.view)
+        
+        //建立父子关系
+        addChildViewController(studyHomeViewController)
+        studyHomeViewController.didMoveToParentViewController(self)
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+        studyHomeViewController.view.addGestureRecognizer(panGestureRecognizer)
+        
+        //单击收起菜单手势
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handlePanGesture")
+        studyHomeViewController.view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
 }

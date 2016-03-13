@@ -56,7 +56,6 @@ class StudyMenuViewController: UIViewController,UITableViewDataSource {
             classSeat.students = students
             self.viewDidLoad()
         }
-        
     }
     
     @IBOutlet weak var stackView1: UIStackView!
@@ -78,6 +77,8 @@ class StudyMenuViewController: UIViewController,UITableViewDataSource {
         var classname: String
     }
     
+    var classInfo: ClassInfo = ClassInfo(classid: "", classname: "")
+    
     let cls: [ClassInfo] = sideMenu.classlist
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,4 +92,13 @@ class StudyMenuViewController: UIViewController,UITableViewDataSource {
         title.text = cl.classname
         return cell
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let smvc = segue.destinationViewController as! StudyHomeViewController
+        let indexPath = menuTableView.indexPathForSelectedRow
+        if let index = indexPath {
+           smvc.classInfo = cls[index.row]
+        }
+    }
+    
 }

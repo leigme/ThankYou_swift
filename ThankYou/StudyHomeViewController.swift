@@ -12,6 +12,48 @@ class StudyHomeViewController: UIViewController,UICollectionViewDataSource {
     
     @IBOutlet weak var stackView: UIStackView!
     var pjd: NSData = NSData()
+    
+    struct TeacherHeader {
+        var teachername: String
+        var teacherheadimg: String
+        var classname: String
+        var teachercount: String
+        var studentcount: String
+    }
+    
+    struct Student {
+        var studentid: String
+        var studentname: String
+        var studentheadimg: String
+    }
+    
+    var classInfo: ClassInfo
+    
+    var teacherHeader: TeacherHeader? {
+        didSet {
+            loadHomeView()
+        }
+    }
+    
+    var student: Student? {
+        didSet {
+            loadHomeView()
+        }
+    }
+    
+    func loadHomeView() {
+        teacherName.text = teacherHeader?.teachername
+        if let url: NSURL = NSURL(string: teacherHeader!.teacherheadimg) {
+            if let data: NSData = NSData(contentsOfURL: url) {
+                let image = UIImage(data: data, scale: 1.0)
+                teacherHeadImg = UIImageView(image: image)
+            }
+        }
+        className.text = teacherHeader?.classname
+        teacherNum.text = teacherHeader?.teachercount
+        studentNum.text = teacherHeader?.studentcount
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let bgBuleColor = UIColor(red: 38/255, green: 109/255, blue: 227/255, alpha: 1)
@@ -22,6 +64,7 @@ class StudyHomeViewController: UIViewController,UICollectionViewDataSource {
             print("+++++")
             pjd = jd as! NSData
         }
+        moreTeacher.transform = CGAffineTransformMakeRotation(90)
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,7 +93,10 @@ class StudyHomeViewController: UIViewController,UICollectionViewDataSource {
     
     let students: [Student] = classSeat.students
     
+    @IBOutlet weak var moreTeacher: UIButton!
+    
     @IBOutlet weak var studentCollectionView: UICollectionView!
+    
     @IBOutlet weak var rightItme: UIButton!
     
     @IBOutlet weak var teacherHeadImg: UIImageView!
